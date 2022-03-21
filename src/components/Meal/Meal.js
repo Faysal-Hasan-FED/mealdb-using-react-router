@@ -1,8 +1,13 @@
 import React from 'react';
 import { Button, Card, Col } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const Meal = (props) => {
-    const {strMeal , strMealThumb} = props.meal;
+    const {strMeal , strMealThumb , idMeal} = props.meal;
+    const navigate = useNavigate();
+    const handleClick = () =>{
+      navigate(`/meal/${idMeal}`)
+    }
     return (
 
     <Col>
@@ -15,7 +20,7 @@ const Meal = (props) => {
             lead-in to additional content. This content is a little bit longer.
           </Card.Text>
           <div className='text-center'>
-          <Button variant='outline-dark'>See Details</Button>
+          <Button onClick={handleClick} variant='outline-dark'>See Details</Button>
           </div>
         </Card.Body>
       </Card>
